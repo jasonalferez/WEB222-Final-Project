@@ -100,11 +100,12 @@ function buildCardForObservation(observation) {
 
 function toggleLoading(isLoading) {
 
-  let searchButton = document.querySelector('#btnSearch');
+  let searchButton = document.querySelector('#searchButton');
   let span = document.createElement('span');
   let icon = document.createElement('i');
   let text;
-  if(isLoading){
+
+  if(isLoading === true){
     icon.className = "fas fa-hourglass-half";
     icon.title = "Loading";
     span.append(icon);

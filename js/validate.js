@@ -1,28 +1,32 @@
 function validate(event) {
-
   let latitude = document.querySelector('#latitude');
   let longtitude = document.querySelector('#longtitude');
-  let latitudeValue = latitude.value.trim();
-  let longtitudeValue = longtitude.value.trim();
+  let latitudeNum = latitude.value.trim();
+  let longtitudeNum = longtitude.value.trim();
+  let latChecker = false;
+  let longChecker = true;
 
-  if(isNaN(latitudeValue)  || latitudeValue < -90 || latitudeValue > 90){
-    document.querySelector('#lblLatitude>span').innerHTML ="";
-    document.querySelector('#lblLatitude>span').append("* must be a valid Latitude (-90 to 90)");
-    event.preventDefault();
+  if(!latitudeNum < -90 || lat > 90){
+    document.querySelector('#latLabel>span').innerHTML ="";
+    document.querySelector('#latLabel>span').append("* must be a valid Latitude (-90 to 90)");
+    latChecker = false;
+
   } else{
-    document.querySelector('#lblLatitude>span').innerHTML ="";
-    document.querySelector('#lblLatitude>span');
-    return true;
+    document.querySelector('#latLabel>span').innerHTML ="";
+    latChecker = true;
   }
  
-  if(isNaN(longtitudeValue) || longtitudeValue< -180 || longtitudeValue > 180){
-    document.querySelector('#lblLongtitude>span').innerHTML ="";
-    document.querySelector('#lblLongtitude>span').append("* must be a valid Longtitude(-180 to 180)");
-    event.preventDefault();
+  if(!longtitudeNum < -180 || longtitudeNum > 180){
+    document.querySelector('#longLabel>span').innerHTML ="";
+    document.querySelector('#longLabel>span').append("* must be a valid Longtitude(-180 to 180)");
+    longChecker = false;
   } else{
-    document.querySelector('#lblLongtitude>span').innerHTML ="";
-    document.querySelector('#lblLatitude>span').append("* must be a valid Latitude (-90 to 90)");
-    return true;
+    document.querySelector('#longLabel>span').innerHTML ="";
+    longChecker = true;
+  }
+
+  if (latChecker === false || longChecker === false){
+    event.preventDefault();
   }
 
  }
