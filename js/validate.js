@@ -6,8 +6,7 @@ function validate(event) {
   let latChecker = false;
   let longChecker = true;
 
-  if(!latitudeNum <= -90 || lat >= 90){
-    document.querySelector('#latLabel>span').innerHTML ="";
+  if(!latitudeNum >= -90 || latitudeNum <= 90){
     document.querySelector('#latLabel>span').append("* must be a valid Latitude (-90 to 90)");
     latChecker = false;
 
@@ -17,7 +16,6 @@ function validate(event) {
   }
  
   if(!longtitudeNum <= -180 || longtitudeNum >= 180){
-    document.querySelector('#longLabel>span').innerHTML ="";
     document.querySelector('#longLabel>span').append("* must be a valid Longtitude(-180 to 180)");
     longChecker = false;
   } else{
