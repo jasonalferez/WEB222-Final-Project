@@ -118,6 +118,20 @@ footer {
   text-align: right;
 }
 
-/**
- * TODO: style the Search Form
- */
+#search{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#searchForAddress{
+  width:70%;
+}
+#searchButton{
+  width:25%;
+}
+
+#searchButton span{
+  padding-right: 5px;
+}
