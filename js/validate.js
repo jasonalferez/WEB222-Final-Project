@@ -19,10 +19,12 @@ function validate(event) {
     document.querySelector('#lblLongtitude>span').innerHTML ="";
     document.querySelector('#lblLongtitude>span').append("* must be a valid Longtitude(-180 to 180)");
     event.preventDefault();
+  } else{
+    document.querySelector('#lblLongtitude>span').innerHTML ="";
+    document.querySelector('#lblLatitude>span').append("* must be a valid Latitude (-90 to 90)");
+    return true;
   }
-  document.querySelector('#lblLongtitude>span').innerHTML ="";
-  document.querySelector('#lblLatitude>span').append("* must be a valid Latitude (-90 to 90)");
-  return true;
+
  }
  
 // Wait for the window to load, then set up the submit event handler for the form.
