@@ -78,7 +78,7 @@ function start() {
     // Stop the form from trying to submit over the network. We'll process the data here.
     event.preventDefault();
 
-    let address = document.getElementById("searchAddress").value;
+    let address = document.getElementById("searchForAddress").value;
     search(address);
 
   };
