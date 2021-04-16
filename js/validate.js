@@ -6,7 +6,8 @@ function validate(event) {
   let latChecker = false;
   let longChecker = true;
 
-  if(!latitudeNum >= -90 || latitudeNum <= 90){
+  if(latitudeNum < -90 || latitudeNum > 90 || isNaN(latitudeNum)){
+    document.querySelector('#latLabel>span').innerHTML ="";
     document.querySelector('#latLabel>span').append("* must be a valid Latitude (-90 to 90)");
     latChecker = false;
 
@@ -15,7 +16,8 @@ function validate(event) {
     latChecker = true;
   }
  
-  if(!longtitudeNum <= -180 || longtitudeNum >= 180){
+  if(longtitudeNum < -180 || longtitudeNum > 180 || isNaN(longtitudeNum)){
+    document.querySelector('#longLabel>span').innerHTML ="";
     document.querySelector('#longLabel>span').append("* must be a valid Longtitude(-180 to 180)");
     longChecker = false;
   } else{
@@ -25,6 +27,7 @@ function validate(event) {
 
   if (latChecker === false || longChecker === false){
     event.preventDefault();
+    return validate();
   }
 
  }
